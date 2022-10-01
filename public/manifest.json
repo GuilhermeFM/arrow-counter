@@ -13,7 +13,7 @@
 
   "background_color": "#27272a",
 
-  "start_url": "arrow-counter.vercel.app",
+  "start_url": "https://arrow-counter.vercel.app/",
 
   "icons": [
     {
