@@ -7,13 +7,10 @@ html {
 }
 
 html,
-body {
-  @apply flex w-full h-full m-0;
-  @apply text-purple-600 antialiased;
-}
-
+body,
 #__next {
-  @apply flex-1;
+  @apply h-full w-full;
+  @apply text-purple-600 antialiased;
 }
 
 * {

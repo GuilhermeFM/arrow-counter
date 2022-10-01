@@ -7,7 +7,7 @@ import {
   FontAwesomeIconProps,
 } from "@fortawesome/react-fontawesome";
 
-import { faAdd, faMinus } from "@fortawesome/free-solid-svg-icons";
+import { faAdd, faMinus, faRefresh } from "@fortawesome/free-solid-svg-icons";
 
 const Home: NextPage = () => {
   const [arrows, setArrows] = useState<number>(0);
@@ -49,31 +49,24 @@ const Home: NextPage = () => {
   }, [arrows]);
 
   return (
-    <div className="flex h-full flex-1 flex-col items-center justify-center gap-10">
-      <h1 className="mb-26 text-8xl">Arrow counter</h1>
-      <div className="flex items-center justify-center gap-3">
+    <div className="flex h-full w-full flex-col items-center justify-center gap-28 p-6">
+      <h1 className="text-5xl">Arrow counter</h1>
+
+      <div className="flex w-full items-center justify-center gap-1">
         {digits.map((digit, index) => (
           <Digit key={index}>{digit}</Digit>
         ))}
       </div>
-      <div className="flex items-center justify-center gap-5">
-        <Button
-          className="flex items-center justify-center"
-          onClick={handleSum}
-        >
+
+      <div className="flex w-full flex-wrap items-center justify-center gap-6">
+        <Button title="add" onClick={handleSum}>
           <Icon icon={faAdd} />
         </Button>
-        <Button
-          className="flex items-center justify-center"
-          onClick={handleMinus}
-        >
+        <Button title="remove" onClick={handleMinus}>
           <Icon icon={faMinus} />
         </Button>
-        <Button
-          className="flex w-full items-center justify-center"
-          onClick={handleReset}
-        >
-          reset
+        <Button title="reset" onClick={handleReset}>
+          <Icon icon={faRefresh} />
         </Button>
       </div>
     </div>
@@ -85,7 +78,7 @@ type DigitProps = HtmlHTMLAttributes<HTMLSpanElement>;
 function Digit({ className, children }: DigitProps) {
   return (
     <span
-      className={`${className} flex items-center justify-center rounded-xl bg-zinc-700 p-6 text-8xl font-bold leading-snug`}
+      className={`${className} flex items-center justify-center bg-zinc-700 p-6 text-6xl font-bold leading-relaxed first:rounded-l-xl last:rounded-r-xl`}
     >
       {children}
     </span>
@@ -97,7 +90,8 @@ type ButtonProps = HtmlHTMLAttributes<HTMLButtonElement>;
 function Button({ className, children, ...rest }: ButtonProps) {
   return (
     <button
-      className={`h-16 w-16 rounded bg-purple-600 p-6 font-medium text-white transition-all duration-200 ease-in-out hover:bg-purple-800 ${className}`}
+      type="button"
+      className={`flex h-16 w-16 items-center justify-center rounded-full bg-zinc-700 p-6 hover:bg-purple-700 hover:text-white ${className}`}
       {...rest}
     >
       {children}
@@ -108,7 +102,7 @@ function Button({ className, children, ...rest }: ButtonProps) {
 type IconProps = FontAwesomeIconProps;
 
 function Icon({ className, ...rest }: IconProps) {
-  return <FontAwesomeIcon className={`${className}`} {...rest} />;
+  return <FontAwesomeIcon className={`h-8 w-8 ${className}`} {...rest} />;
 }
 
 export default Home;
