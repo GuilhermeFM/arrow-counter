@@ -1,5 +1,20 @@
 {
-  "name": "App",
+  "id": "/?source=pwa",
+
+  "short_name": "Arrow Counter",
+
+  "name": "Arrow Counter",
+
+  "display": "standalone",
+
+  "display_override": ["minimal-ui"],
+
+  "theme_color": "#27272a",
+
+  "background_color": "#27272a",
+
+  "start_url": "arrow-counter.vercel.app",
+
   "icons": [
     {
       "src": "/android-icon-36x36.png",
